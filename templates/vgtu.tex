@@ -1,3 +1,90 @@
-\documentclass{article}
+\documentclass[12pt]{article}
+
+% Lithuanian Font Encoding - https://www.vtex.lt/tex/littex/index.html
+\usepackage[L7x,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% For 'Times New Roman' lookalike font
+\usepackage{mathptmx}
+
+% For university logo
+\usepackage{graphicx}
+\graphicspath{ {./} }
+
+% Indentation on the first paragraph
+\usepackage{indentfirst}
+
+% Margins and type of paper
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    top=20mm,
+    right=15mm,
+    bottom=20mm,
+    left=25mm,
+}
+
+% Line gap
+\renewcommand{\baselinestretch}{1.5}
+
+% Indent size
+\setlength{\parindent}{7mm}
+
+% Section and Subsection formatting
+\usepackage{titlesec}
+\titleformat{\section}{\bfseries}{\thesection.}{12pt}{}
+\titleformat{\subsection}{\bfseries}{\thesubsection.}{12pt}{}
+
+% Title definitions
+\newcommand{\university}{Vilniaus Gedimino Technikos universitetas}
+\newcommand{\faculty}{Fundamentinių mokslų fakultetas}
+\newcommand{\cathedral}{Informacinių sistemų katedra}
+
+\newcommand{\worktitle}{Temos pavadinimas}
+\newcommand{\worktype}{Kursinis/Kompleksinis darbas/Namų darbas/Referatas}
+
+\newcommand{\workauthorgroup}{GRUPĖ}
+\newcommand{\workauthorname}{VARDAS PAVARDĖ}
+
+\newcommand{\workrecipientoccupation}{PAREIGOS}
+\newcommand{\workrecipientdegree}{MOKSLO LAIPSNIS}
+\newcommand{\workrecipientname}{VARDAS PAVARDĖ}
+
+\newcommand{\maketitlepage}
+{
+    \begin{center}
+        \includegraphics[width=8cm, height=1.5cm]{vgtu-logo.png}
+
+        \vspace{1.8cm}
+
+        \MakeUppercase{\university{}}
+        
+        \MakeUppercase{\faculty{}}
+
+        \MakeUppercase{\cathedral{}}
+
+        \vspace{4cm}
+
+        \MakeUppercase{\textbf{\worktitle{}}}
+        
+        \worktype{}
+
+        \vspace{4cm}
+
+        \begin{flushright}
+        Atliko: \workauthorgroup{} grupės studentas \workauthorname{}
+
+        Tikrino: \workrecipientoccupation{}, \workrecipientdegree{}, \workrecipientname{}
+        \end{flushright}
+
+        \vspace{\fill}
+
+        VILNIUS \the\year{}
+    \end{center}
+    \thispagestyle{empty}
+    \newpage
+}
+
 \begin{document}
+\maketitlepage{}
 \end{document}
