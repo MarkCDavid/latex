@@ -11,6 +11,9 @@
 \usepackage{graphicx}
 \graphicspath{ {./} }
 
+% ToC/LoF/LoT clickable
+\usepackage{hyperref}
+
 % Indentation on the first paragraph
 \usepackage{indentfirst}
 
@@ -34,6 +37,22 @@
 \usepackage{titlesec}
 \titleformat{\section}{\bfseries}{\thesection.}{12pt}{}
 \titleformat{\subsection}{\bfseries}{\thesubsection.}{12pt}{}
+
+\usepackage{tocloft}
+
+\renewcommand{\cftsecfont}{\bfseries}
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
+
+\renewcommand\contentsname{Turinys}
+\renewcommand\listfigurename{Paveikslėlių sąrašas}
+\renewcommand\listtablename{Lentelių sąrašas}
+
+\renewcommand{\figurename}{pav.}
+\renewcommand{\thefigure}{\arabic{figure}}
+
+\renewcommand{\tablename}{lentelė}
+\renewcommand{\thetable}{\arabic{table}}
+
 
 % Title definitions
 \newcommand{\university}{Vilniaus Gedimino Technikos universitetas}
@@ -85,6 +104,25 @@
     \newpage
 }
 
+
+\newcommand{\makecontenttables}
+{
+    \tableofcontents
+    \addcontentsline{toc}{part}{\contentsname}
+
+    %\listoffigures
+    %\addcontentsline{toc}{part}{\listfigurename}
+
+    %\listoftables
+    %\addcontentsline{toc}{part}{\listtablename}
+
+    \newpage
+}
+
 \begin{document}
+
 \maketitlepage{}
+
+\makecontenttables{}
+
 \end{document}
