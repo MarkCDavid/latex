@@ -3,13 +3,13 @@
 % Lithuanian Font Encoding - https://www.vtex.lt/tex/littex/index.html
 \usepackage[L7x,T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage[lithuanian]{babel}
 
 % For 'Times New Roman' lookalike font
 \usepackage{mathptmx}
 
 % For university logo
 \usepackage{graphicx}
-\graphicspath{ {./} }
 
 % ToC/LoF/LoT clickable
 \usepackage{hyperref}
@@ -38,8 +38,8 @@
 \titleformat{\section}{\bfseries}{\thesection.}{12pt}{}
 \titleformat{\subsection}{\bfseries}{\thesubsection.}{12pt}{}
 
+% Content Tables definitions
 \usepackage{tocloft}
-
 \renewcommand{\cftsecfont}{\bfseries}
 \renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
 

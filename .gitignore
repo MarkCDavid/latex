@@ -1,7 +1,9 @@
 /documents
 
-
 *.log
+*.vrb
+*.snm
+*.nav
 *.aux
 *.pdf
 *.log
