@@ -34,6 +34,14 @@
 \usepackage[utf8]{inputenc}
 \usepackage[lithuanian]{babel}
 
+\usepackage[    
+    backend=biber,
+    style=verbose,
+    citestyle=authoryear,
+    sorting=anyt
+    ]{biblatex}
+\addbibresource{bibliography.bib}
+\renewcommand*{\nameyeardelim}{\addcomma\space}
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -188,7 +196,7 @@ Uncomment the code on this slide to include your own image from the same directo
 
 \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
 \frametitle{Citation}
-An example of the \verb|\cite| command to cite within the presentation:\\~
+An example of the \verb|\citep| command to cite within the presentation:\\~
 
 This statement requires citation \cite{p1}.
 \end{frame}
@@ -197,13 +205,9 @@ This statement requires citation \cite{p1}.
 
 \begin{frame}
 \frametitle{Šaltiniai}
-\footnotesize{
-\begin{thebibliography}{99}
-    \bibitem[Smith, 2012]{p1} John Smith (2012)
-    \newblock Title of the publication
-    \newblock \emph{Journal Name} 12(3), 45 -- 678.
-\end{thebibliography}
-}
+
+\printbibliography
+
 \end{frame}
 
 %------------------------------------------------
