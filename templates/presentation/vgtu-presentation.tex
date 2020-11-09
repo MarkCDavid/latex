@@ -42,6 +42,7 @@
     ]{biblatex}
 \addbibresource{bibliography.bib}
 \renewcommand*{\nameyeardelim}{\addcomma\space}
+\setbeamertemplate{bibliography item}{\insertbiblabel}
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -196,9 +197,9 @@ Uncomment the code on this slide to include your own image from the same directo
 
 \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
 \frametitle{Citation}
-An example of the \verb|\citep| command to cite within the presentation:\\~
+An example of the \verb|\cite| command to cite within the presentation:\\~
 
-This statement requires citation \cite{p1}.
+This statement requires citation \cite{einstein}.
 \end{frame}
 
 %------------------------------------------------

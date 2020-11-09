@@ -14,3 +14,5 @@
 *.toc
 *.fdb_latexmk
 *.synctex.gz
+*.bcf
+*.run.xml
