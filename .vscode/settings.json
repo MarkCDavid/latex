@@ -3,6 +3,13 @@
     "latex-workshop.latex.recipes": [
 
         {
+            "name": "pdflatex",
+            "tools": [
+                "pdflatex",
+            ]
+        },
+
+        {
             "name": "pdflatex ➞ bibtex ➞ pdflatex × 2",
             "tools": [
                 "pdflatex",
@@ -67,6 +74,6 @@
             "args": [
                 "%DOCFILE%"
             ]
-        }
+        },
     ]
 }
