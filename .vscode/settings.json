@@ -75,5 +75,14 @@
                 "%DOCFILE%"
             ]
         },
+    ],
+    "spellright.language": [
+        "English (American)",
+        "Lithuanian"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "plaintext",
+        "latex"
     ]
 }
