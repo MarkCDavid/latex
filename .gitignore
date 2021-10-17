@@ -12,6 +12,8 @@
 *.lot
 *.out
 *.toc
+*.bbl
+*.blg
 *.fdb_latexmk
 *.synctex.gz
 *.bcf
