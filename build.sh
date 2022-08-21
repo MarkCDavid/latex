@@ -7,7 +7,7 @@ document="${1%.*}"
 
 _pdflatex() {
     echo "pdflatex - $1"
-    pdflatex \
+    pdflatex-dev \
         -synctex=1 \
         -output-directory=./aux \
         -halt-on-error \
@@ -16,9 +16,9 @@ _pdflatex() {
     [ $status -eq 0 ] || _error
 }
 
-_bibtex() {
-    echo "bibtex - $1"
-    bibtex \
+_biber() {
+    echo "biber - $1"
+    biber \
         "./aux/$document" 1>/dev/null
     status=$?
     [ $status -eq 0 ] || _error
@@ -27,9 +27,11 @@ _bibtex() {
 _error() {
     if [ -f "./aux/$document.log" ]; then
         cp "./aux/$document.log" . &&
-        echo "Error occured - check '$document.log' for details"
+        echo "Error occured - check '$document.log' for details" &&
+        _cleanup
     else
-        echo "Error occured, no log file is available"
+        echo "Error occured, no log file is available" &&
+        _cleanup
     fi
     exit 1
 }
@@ -37,11 +39,15 @@ _error() {
 _postprocessing() {
     cp "./aux/$document.pdf" .
     cp "./aux/$document.log" .
+    _cleanup
+}
+
+_cleanup() {
     rm -r ./aux
 }
 
 _pdflatex "Generating document"
-_bibtex "Generating references"
+_biber "Generating references"
 _pdflatex "Attaching references"
 _pdflatex "Enumerating references"
-_postprocessing
+_postprocessing 
