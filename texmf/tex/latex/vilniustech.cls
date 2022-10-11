@@ -144,6 +144,8 @@
 
 % Modernus lentelių paketas
 \RequirePackage{tabularray}
+\RequirePackage{varwidth}
+\RequirePackage{enumitem}
 \DefTblrTemplate{caption-tag}{lithuanian}{\small\textbf{\thetable\ lentelė.}}
 \DefTblrTemplate{caption-text}{lithuanian}{\small\InsertTblrText{caption}}
 \DefTblrTemplate{caption-tag}{lithuaniancont}{\small\textbf{\thetable\ lentelės tesinys.}}
@@ -170,6 +172,32 @@
     \begin{vttable}#1
     \end{vttable}
     \end{singlespace}
+}
+
+\def\VTTableBeginEnumerate
+{
+    \begin{varwidth}[t]{\linewidth}
+    \begin{enumerate}[topsep=0pt,parsep=0pt]
+}
+
+\def\VTTableEndEnumerate
+{
+    \strut
+    \end{enumerate}
+    \end{varwidth}
+}
+
+\def\VTTableBeginItemize
+{
+    \begin{varwidth}[t]{\linewidth}
+    \begin{itemize}[topsep=0pt,parsep=0pt]
+}
+
+\def\VTTableEndItemize
+{
+    \strut
+    \end{itemize}
+    \end{varwidth}
 }
 
 % PDF puslapių įterpimas
