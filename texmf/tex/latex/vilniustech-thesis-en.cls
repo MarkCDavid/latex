@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{vilniustech}[2022 Rašto darbo klasė (Vilnius Tech)]
+\ProvidesClass{vilniustech-thesis-en}[2022 Rašto darbo klasė (Vilnius Tech) (Anglų kalba)]
 \PassOptionsToClass{12pt, a4paper}{article}
 \ProcessOptions\relax
 \LoadClass{article}
@@ -16,10 +16,9 @@
 \DeclareStringOption{cathedral}
 \DeclareStringOption{workTitle}
 \DeclareStringOption{workType}
-\DeclareStringOption{workAuthorGroup}
 \DeclareStringOption{workAuthorName}
-\DeclareStringOption{workAuthorNames}
-\DeclareStringOption{workRecipient}
+\DeclareStringOption{studyProgramme}
+\DeclareStringOption{studyDomain}
 \ProcessKeyvalOptions*
 
 \newcommand{\vilniustechsetup}{
@@ -40,9 +39,9 @@
 
 % Lietuviško teksto kodavimas
 % https://www.vtex.lt/tex/littex/index.html
+% Būtinas, prireikus koduoti lietuviškus simbolius angliškame dokumente
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[L7x,T1]{fontenc}
-\RequirePackage[lithuanian]{babel}
 
 % Į 'Times New Roman' panašus šriftas
 \RequirePackage{mathptmx} 
@@ -126,10 +125,8 @@
 % Teisingas kablelio atvaizdavimas skaitmenyse
 \RequirePackage{icomma}
 
-% Lietuviškos kabutės
-\RequirePackage{csquotes}
-\DeclareQuoteAlias{german}{lithuanian}
-\MakeOuterQuote{"}
+% Kelių stulpelių aplinka
+\usepackage{multicol}
 
 % Antraščių formatavimas
 \RequirePackage{titlesec}
@@ -181,8 +178,6 @@
     format = hang,
     labelfont = bf,
     font = small,
-    tablename = lentelė,
-    figurename = pav
 }
 \captionsetup[table]{
     labelsep = period,
@@ -199,20 +194,19 @@
 \RequirePackage{tabularray}
 \RequirePackage{varwidth}
 \RequirePackage{enumitem}
-\DefTblrTemplate{caption-tag}{lithuanian}{\small\textbf{\thetable\ lentelė.}}
-\DefTblrTemplate{caption-text}{lithuanian}{\small\InsertTblrText{caption}}
-\DefTblrTemplate{caption-tag}{lithuaniancont}{\small\textbf{\thetable\ lentelės tesinys.}}
-\DefTblrTemplate{contfoot-text}{empty}{}
-\DefTblrTemplate{caption}{lithuanian}{
-    \UseTblrTemplate {caption-tag}{lithuanian}
-    \UseTblrTemplate {caption-text}{lithuanian}
+\DefTblrTemplate{caption-tag}{vtTag}{\small\textbf{Table\ \thetable.}}
+\DefTblrTemplate{caption-text}{vtText}{\small\InsertTblrText{caption}}
+\DefTblrTemplate{caption-tag}{vtContTag}{\small\textbf{Table\ \thetable\ (Continued).}}
+
+\DefTblrTemplate{caption}{vt}{
+    \UseTblrTemplate {caption-tag}{vtTag}
+    \UseTblrTemplate {caption-text}{vtText}
 }
 \DefTblrTemplate{capcont}{default}{
-    \UseTblrTemplate{caption-tag}{lithuaniancont}
-    \UseTblrTemplate{caption-text}{lithuanian}
+    \UseTblrTemplate{caption-tag}{vtContTag}
+    \UseTblrTemplate{caption-text}{vtText}
 }
-\SetTblrTemplate{caption}{lithuanian}
-\SetTblrTemplate{contfoot-text}{empty}
+\SetTblrTemplate{caption}{vt}
 
 \NewTblrEnviron { vttable }
 \SetTblrOuter [ vttable ] { long }
@@ -270,6 +264,7 @@
 %%%
 
 % Komanda skirta generuoti titulinį lapą
+
 \newcommand{\MakeTitlePage}
 {
     \begin{center}
@@ -280,19 +275,17 @@
 
         {\MakeUppercase{\vt@faculty}\vspace{0.1cm}}
 
-        {\MakeUppercase{\vt@cathedral}\vspace{6cm}}
+        {\MakeUppercase{\vt@cathedral}\vspace{2.5cm}}
 
-        {\MakeUppercase{\textbf{\vt@workTitle}}\vspace{0.1cm}}
+        {\large\vt@workAuthorName\vspace{1.5cm}}
 
-        {\vt@workType\vspace{5cm}}
+        {\large\MakeUppercase{\textbf{\vt@workTitle}}\vspace{0.1cm}}
 
-        \begin{flushright}
-            \ifblankvt{\vt@workAuthorName}{}{Atliko: \vt@workAuthorGroup\ grupės studentas \vt@workAuthorName}
-            \ifblankvt{\vt@workAuthorNames}{}{Atliko: \vt@workAuthorGroup\ grupės studentai: \\ \vt@workAuthorNames}
-    
-            Tikrino: \vt@workRecipient
-        \end{flushright}
-        \vspace{\fill}
+        {\large\vt@workType\vspace{1.5cm}}
+
+        {\vt@studyProgramme\vspace{0.5cm}}
+
+        {\vt@studyDomain\vspace{\fill}}
 
         Vilnius, \the\year{}
     \end{center}

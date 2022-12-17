@@ -81,8 +81,6 @@
         "Lithuanian"
     ],
     "spellright.documentTypes": [
-        "markdown",
-        "plaintext",
-        "latex"
+        "markdown"
     ]
 }
