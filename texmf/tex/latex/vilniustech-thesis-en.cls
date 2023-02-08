@@ -106,10 +106,10 @@
 
 
 % Tarpams tarp eilučių
-\RequirePackage{setspace}
+\RequirePackage[nodisplayskipstretch]{setspace}
 
 % 1.5 intervalas tarp eilučių
-\onehalfspacing
+\setstretch{1.427465}
 
 % Veikiančios turinio, lentelių, paveikslėlių ir bendrosios nuorodos
 \RequirePackage[unicode]{hyperref}
@@ -234,8 +234,6 @@
     \end{varwidth}
 }
 
-
-
 \def\VTTableBeginItemize
 {
     \begin{varwidth}[t]{\linewidth}
@@ -297,6 +295,8 @@
 \newcommand{\MakeContentTables}
 {
     \tableofcontents
+    
+    \newpage
     
     \iftotalfigures
         \listoffigures
