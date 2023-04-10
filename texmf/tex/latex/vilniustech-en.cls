@@ -324,12 +324,12 @@
     \end{figure}
 }
 
-\newcommand{\VTWrappedImage}[4]{
-    \begin{wrapfigure}{r}{#4}
+\newcommand{\VTWrappedImage}[5]{
+    \begin{wrapfigure}{#1}{#5}
         \centering
-        \includegraphics[width=#4]{#1}
-        \caption{#2}
-        \label{#3}
+        \includegraphics[width=#4]{#2}
+        \caption{#3}
+        \label{#4}
     \end{wrapfigure}
 }
 
