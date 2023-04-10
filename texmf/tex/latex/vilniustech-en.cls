@@ -314,6 +314,25 @@
     \newpage
 }
 
+\newcommand{\VTImage}[4]{
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=#4]{#1}
+            \caption{#2}
+            \label{#3}
+        \end{center}
+    \end{figure}
+}
+
+\newcommand{\VTWrappedImage}[4]{
+    \begin{wrapfigure}{r}{#4}
+        \centering
+        \includegraphics[width=#4]{#1}
+        \caption{#2}
+        \label{#3}
+    \end{wrapfigure}
+}
+
 % Komanda skirta generuoti dokumento pradžią
 \newcommand{\VTDocumentBegin}
 {
