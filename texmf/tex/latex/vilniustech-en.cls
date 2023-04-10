@@ -327,7 +327,7 @@
 \newcommand{\VTWrappedImage}[5]{
     \begin{wrapfigure}{#1}{#5}
         \centering
-        \includegraphics[width=#4]{#2}
+        \includegraphics[width=#5]{#2}
         \caption{#3}
         \label{#4}
     \end{wrapfigure}
