@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{vilniustech-en}[2022 Rašto darbo klasė (Vilnius Tech) (Anglų kalba)]
+\ProvidesClass{vilniustech-lt}[2022 Rašto darbo klasė (Vilnius Tech) (Lietuvių kalba)]
 \PassOptionsToClass{12pt, a4paper}{article}
 \ProcessOptions\relax
 \LoadClass{article}
@@ -43,6 +43,7 @@
 % Būtinas, prireikus koduoti lietuviškus simbolius angliškame dokumente
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[L7x,T1]{fontenc}
+\RequirePackage[lithuanian]{babel}
 
 % Į 'Times New Roman' panašus šriftas
 \RequirePackage{mathptmx} 
@@ -104,9 +105,6 @@
       {[}{{{\color{delim}{[}}}}{1}
       {]}{{{\color{delim}{]}}}}{1},
 }
-
-
-
 
 % Tarpams tarp eilučių
 \RequirePackage[nodisplayskipstretch]{setspace}
@@ -189,16 +187,23 @@
     justification=raggedright
 }
 \captionsetup[figure]{
-    labelsep = period
+    labelsep = space
 }
+\renewcommand{\lstlistingname}{Ištrauka}
+\renewcommand{\lstlistlistingname}{Ištraukų sąrašas}
+
+\addto\extraslithuanian{
+  \renewcommand{\figureautorefname}{pav.}
+}
+
 
 % Modernus lentelių paketas
 \RequirePackage{tabularray}
 \RequirePackage{varwidth}
 \RequirePackage{enumitem}
-\DefTblrTemplate{caption-tag}{vtTag}{\small\textbf{Table\ \thetable.}}
+\DefTblrTemplate{caption-tag}{vtTag}{\small\textbf{Lentelė\ \thetable.}}
 \DefTblrTemplate{caption-text}{vtText}{\small\InsertTblrText{caption}}
-\DefTblrTemplate{caption-tag}{vtContTag}{\small\textbf{Table\ \thetable\ (Continued).}}
+\DefTblrTemplate{caption-tag}{vtContTag}{\small\textbf{Lentelė\ \thetable\ (Tesinys).}}
 
 \DefTblrTemplate{caption}{vt}{
     \UseTblrTemplate {caption-tag}{vtTag}
@@ -281,10 +286,10 @@
         {\vt@workType\vspace{5cm}}
 
         \begin{flushright}
-            \ifblankvt{\vt@workAuthorName}{}{Author: \vt@workAuthorGroup\ group student \vt@workAuthorName}
-            \ifblankvt{\vt@workAuthorNames}{}{Authors: \vt@workAuthorGroup\ group students: \\ \vt@workAuthorNames}
+            \ifblankvt{\vt@workAuthorName}{}{Atliko: \vt@workAuthorGroup\ grupės studentas \vt@workAuthorName}
+            \ifblankvt{\vt@workAuthorNames}{}{Atliko: \vt@workAuthorGroup\ grupės studentai: \\ \vt@workAuthorNames}
     
-            Checked by: \vt@workRecipient 
+            Tikrino: \vt@workRecipient 
         \end{flushright}
         \vspace{\fill}
 
@@ -298,7 +303,7 @@
 \newcommand{\MakeContentTables}
 {
     \tableofcontents
-    \newpage
+    
     \iftotalfigures
         \listoffigures
     \fi
@@ -331,17 +336,6 @@
         \caption{#3}
         \label{#4}
     \end{wrapfigure}
-}
-
-
-\newcommand{\VTListingBegin}[3]
-{
-    \begin{lstlisting}[language={#1}, caption={#2}, label={#3},captionpos=b]
-}
-
-\newcommand{\VTListingEnd}
-{
-    \end{lstlisting}
 }
 
 % Komanda skirta generuoti dokumento pradžią
